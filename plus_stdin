@@ -12,5 +12,4 @@ x = 0
 for line in sys.stdin:
     line = line.rstrip()
     x += tonum(line)
-
 print(x)
