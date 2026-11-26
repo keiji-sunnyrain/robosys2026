@@ -4,19 +4,25 @@
 
 import argparse
 import sys
+import unicodedata
 from letter_data import letter_data
 
 def print_big(input,input_letter):
     """大きく表示(1行分)"""
     for i in range(7):
         for letter in input:
-            print(letter_data[letter][i].replace("#", input_letter).replace(".", " "),end=" ")
+            print(letter_data[letter][i].replace("#", input_letter).replace(".", " " if spase_num == 1 else "  "),end=" ")
         print()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--char", default="#")
 parser.add_argument("text", nargs="*")
 args = parser.parse_args()
+
+if unicodedata.east_asian_width(args.char) in ("F", "W"):
+    spase_num = 2
+else:
+    spase_num = 1
 
 merged = ""
 print_data=[]
