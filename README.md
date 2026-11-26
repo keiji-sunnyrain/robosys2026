@@ -21,7 +21,7 @@
 ![画像2](reedme_images/image2.png)
 
 パイプを使いファイル内の文字列を入力する                                          
-実行例3: cat test_werd | ./bigprint -c 'H'
+実行例3: cat test_werd | ./bigprint -c 'H'　　　　　　　　　　　　　　　　　　　　　
 ![画像3](reedme_images/image3.png)
 
 実行例4: cat test_werd | ./bigprint -c '難'                                       
@@ -41,7 +41,7 @@ chmod +x bigprint
 - Ubuntu 24.04 LTS
 
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
-- このパッケージのコードは、下記のスライド（CC BY-SA 4.0 by Taro Suzuki）のものを、
+- このパッケージの構成やコードの一部は下記のスライド（CC BY-SA 4.0 by Taro Suzuki）のものを、
   本人の許可を得て自身の著作としたものです。
     - https://github.com/tarolab-cit/lectures/tree/main/robosys2026
 - © 2026 Keiji Fujie

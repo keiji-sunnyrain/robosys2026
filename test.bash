@@ -7,17 +7,17 @@ ng () {                               # 関数ngの定義（P18と同じ）
 res=0                                  # 0: 失敗なし（ngが呼ばれると1になる）
 
 ### NORMAL INPUT ###
-out=$(seq 5 | ./plus)
+out=$(seq 5 | ./bigprint)
 [ "$?" = 0 ]      || ng "$LINENO"
 [ "${out}" = 15 ] || ng "$LINENO"
 
 ### STRANGE INPUT ###
-out=$(echo あ | ./plus)           #計算できない値を入力してみる
+out=$(echo あいう | ./bigprint)    #表示できない値を入力してみる
 [ "$?" = 1 ]      || ng "$LINENO" #終了ステータスが1なのを確認
-[ "${out}" = "" ] || ng "$LINENO" #上の行と入れ替えるとダメ（なぜ？）
+[ "${out}" = "" ] || ng "$LINENO" 
 
-out=$(echo | ./plus)              #なにも入力しない
-[ "$?" = 1 ]      || ng "$LINENO" #これも異常終了する
+out=$(echo | ./bigprint)          #なにも入力しない
+[ "$?" = 1 ]      || ng "$LINENO" #異常終了する
 [ "${out}" = "" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
