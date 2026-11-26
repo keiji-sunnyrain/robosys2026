@@ -1,4 +1,6 @@
 # 文字は7*7で表現
+# SPDX-FileCopyrightText: 2026 Keiji Fujie
+# SPDX-License-Identifier: BSD-3-Clause
 letter_data = {
     # ---------- 大文字 ----------
     "A": ["..###..", ".#...#.", "#.....#", "#######", "#.....#", "#.....#", "#.....#"],
