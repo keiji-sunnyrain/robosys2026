@@ -12,19 +12,19 @@
 表示に対応している表示テキストはアルファベット"a~z",数字"0~9",一部の記号".,!?()+-"などです。
 '使いたい記号'の中身は文字や記号を1だけにしてください。(半角,全角文字共に入力可能)
 
-# 例:
+# 実行例:
 コマンド上での入力
-./bigprint 32 abc
+実行例1: ./bigprint 32 abc                    
 ![画像1](reedme_images/image1.png)
 
-./bigprint -c 'A' look at
+実行例2: ./bigprint -c 'A' look at                                         
 ![画像2](reedme_images/image2.png)
 
-パイプを使いファイル内の文字列を入力する
-cat test_werd | ./bigprint -c 'H'
+パイプを使いファイル内の文字列を入力する                                          
+実行例3: cat test_werd | ./bigprint -c 'H'
 ![画像3](reedme_images/image3.png)
 
-cat test_werd | ./bigprint -c '難'
+実行例4: cat test_werd | ./bigprint -c '難'                                       
 ![画像4](reedme_images/image4.png)
 
 # セットアップ:
