@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Keiji Fujie
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+from letter_data import letter_data
+
+def print_big(input,input_letter):
+    """大きく表示(1行分)"""
+    for i in range(7):
+        for letter in input:
+            print(letter_data[letter][i].replace("#", input_letter).replace(".", " "),end=" ")
+        print()
+
+merged = ""
+print_data=[]
+if sys.stdin.isatty():
+    # 引数入力
+    for word in sys.argv[1:]:
+        merged+=word
+        merged+=" "
+    for line in range(int(len(merged)/10)+1):
+        print_data.append(merged[line*10:line*10+10])
+
+    for line in range(len(print_data)):
+        print_big(print_data[line],"#")
+else:
+    # 標準入力
+    for line in sys.stdin:
+        for alph in line:
+            print_big(alph)
+
+print()
