@@ -31,6 +31,8 @@ if args.text:
     for word in args.text:
         merged+=word
         merged+=" "
+    if merged.strip() == "":
+        sys.exit(1)
     for line in merged.split("\n"):
         for i in range(0, len(line), 10):
             print_big(line[i:i+10], args.char)
@@ -39,6 +41,8 @@ else:
     for line in sys.stdin:
         merged+=line
         merged+=" "
+    if merged.strip() == "":
+        sys.exit(1)
     for line in merged.split("\n"):
         for i in range(0, len(line), 10):
             print_big(line[i:i+10], args.char)
