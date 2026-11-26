@@ -19,15 +19,16 @@ if sys.stdin.isatty():
     for word in sys.argv[1:]:
         merged+=word
         merged+=" "
-    for line in range(int(len(merged)/10)+1):
-        print_data.append(merged[line*10:line*10+10])
-
-    for line in range(len(print_data)):
-        print_big(print_data[line],"#")
+    for line in merged.split("\n"):
+        for i in range(0, len(line), 10):
+            print_big(line[i:i+10], '@')
 else:
     # 標準入力
     for line in sys.stdin:
-        for alph in line:
-            print_big(alph)
+        merged+=line
+        merged+=" "
+    for line in merged.split("\n"):
+        for i in range(0, len(line), 10):
+            print_big(line[i:i+10], '@')
 
 print()
