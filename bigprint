@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Keiji Fujie
 # SPDX-License-Identifier: BSD-3-Clause
 
+import argparse
 import sys
 from letter_data import letter_data
 
@@ -12,16 +13,21 @@ def print_big(input,input_letter):
             print(letter_data[letter][i].replace("#", input_letter).replace(".", " "),end=" ")
         print()
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--char", default="#")
+parser.add_argument("text", nargs="*")
+args = parser.parse_args()
+
 merged = ""
 print_data=[]
-if sys.stdin.isatty():
+if args.text:
     # 引数入力
-    for word in sys.argv[1:]:
+    for word in args.text:
         merged+=word
         merged+=" "
     for line in merged.split("\n"):
         for i in range(0, len(line), 10):
-            print_big(line[i:i+10], '@')
+            print_big(line[i:i+10], args.char)
 else:
     # 標準入力
     for line in sys.stdin:
@@ -29,6 +35,6 @@ else:
         merged+=" "
     for line in merged.split("\n"):
         for i in range(0, len(line), 10):
-            print_big(line[i:i+10], '@')
+            print_big(line[i:i+10], args.char)
 
 print()
